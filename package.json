@@ -4,15 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "homepage": "https://giriraj-parsewar.github.io/nutriscanner-app",
-
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
-
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "chart.js": "^4.4.8",
