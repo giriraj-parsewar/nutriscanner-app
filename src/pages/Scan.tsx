@@ -2,24 +2,60 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ImageUpload } from '../components/ImageUpload';
 import { Loader2 } from 'lucide-react';
+import apiClient from '../apiClient';
+// import { useAnalysis } from '../context/AnalysisContext';
 
 export function Scan() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [isScanning, setIsScanning] = useState(false);
+  const [ImageFile, SetImageFile] = useState<File | null>(null);
   const navigate = useNavigate();
+  // const { setAnalysisData } = useAnalysis();
 
-  const handleImageSelect = (file: File) => {
-    const imageUrl = URL.createObjectURL(file);
-    setSelectedImage(imageUrl);
+  const handleImageSelect = (file: File | null) => {
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      SetImageFile(file);
+      setSelectedImage(imageUrl);
+    } else {
+      SetImageFile(null);
+      setSelectedImage(null);
+    }
   };
 
   const handleScan = async () => {
+    if (!ImageFile) return;
     setIsScanning(true);
-    // Simulate scanning delay
-    setTimeout(() => {
+    const formData = new FormData();
+    formData.append("file", ImageFile);
+    try {
+      const response = await apiClient.post("/upload-image", formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      try {
+        const id = response?.data?.sessionId;
+        
+        if (!id) {
+          throw new Error("Session ID is undefined or null");
+        }
+      
+        navigate('/analysis/' + id);
+      } catch (error) {
+        if (error instanceof Error) {
+          console.error("Error navigating to analysis:", error.message);
+        } else {
+          console.error("Error navigating to analysis:", error);
+        }
+       
+      }
+      
+    } catch (error) {
+      console.error('Error uploading image:', error);
+    } finally {
       setIsScanning(false);
-      navigate('/analysis');
-    }, 2000);
+    }
   };
 
   return (

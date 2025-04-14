@@ -1,8 +1,6 @@
 export interface Message {
-  id: string;
   role: 'user' | 'assistant';
-  content: string;
-  timestamp: Date;
+  text: string;
 }
 
 export interface ScanResult {

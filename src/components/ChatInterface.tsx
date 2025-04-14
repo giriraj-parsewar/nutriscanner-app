@@ -10,6 +10,8 @@ interface ChatInterfaceProps {
 export function ChatInterface({ messages, onSendMessage }: ChatInterfaceProps) {
   const [input, setInput] = useState('');
 
+  
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (input.trim()) {
@@ -21,9 +23,9 @@ export function ChatInterface({ messages, onSendMessage }: ChatInterfaceProps) {
   return (
     <div className="flex flex-col h-[600px] bg-white rounded-lg shadow-md">
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
-        {messages.map((message) => (
+        {messages.map((message,index) => (
           <div
-            key={message.id}
+            key={index}
             className={`flex ${
               message.role === 'user' ? 'justify-end' : 'justify-start'
             }`}
@@ -35,7 +37,7 @@ export function ChatInterface({ messages, onSendMessage }: ChatInterfaceProps) {
                   : 'bg-gray-100 text-gray-800'
               }`}
             >
-              {message.content}
+              {message.text}
             </div>
           </div>
         ))}

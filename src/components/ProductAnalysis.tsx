@@ -5,9 +5,9 @@ import {
     Beaker,
     Apple,
     Leaf,
-    Plus,
+
     CheckCircle2,
-    AlertCircle,
+ 
     XCircle,
     ScanLine,
     Cloud,
@@ -36,6 +36,7 @@ interface ProductAnalysisProps {
     pros: string[];
     cons: string[];
     alternatives: string[];
+    bonusTips: string[];
     onScanAnother: () => void;
 }
 
@@ -54,6 +55,7 @@ export function ProductAnalysis({
     pros,
     cons,
     alternatives,
+    bonusTips,
     onScanAnother
 }: ProductAnalysisProps) {
     // Calculate offset tips based on gwpValue
@@ -277,6 +279,22 @@ export function ProductAnalysis({
                         </ul>
                     </div>
                 </div>
+            </div>
+
+            {/* Bonus Tips Section - Updated to Card UI */}
+            <div className="bg-white p-6 rounded-lg shadow-md">
+                <div className="flex items-center space-x-2 mb-4">
+                    <Lightbulb className="h-6 w-6 text-yellow-500" />
+                    <h2 className="text-xl font-semibold">Bonus Tips</h2>
+                </div>
+                <ul className="space-y-3">
+                    {bonusTips.map((tip, index) => (
+                        <li key={index} className="flex items-start">
+                            <CheckCircle2 className="h-5 w-5 text-green-500 mr-2 flex-shrink-0" />
+                            <span className="text-sm text-gray-700">{tip}</span>
+                        </li>
+                    ))}
+                </ul>
             </div>
 
             {/* Call to Action */}

@@ -3,7 +3,7 @@ import { useDropzone } from 'react-dropzone';
 import { Upload, Camera } from 'lucide-react';
 
 interface ImageUploadProps {
-  onImageSelect: (file: File) => void;
+  onImageSelect: (file: File | null) => void;
   selectedImage: string | null;
 }
 
@@ -55,7 +55,7 @@ export function ImageUpload({ onImageSelect, selectedImage }: ImageUploadProps) 
             className="w-full rounded-lg shadow-lg"
           />
           <button
-            onClick={() => onImageSelect(null as any)}
+            onClick={() => onImageSelect(null)}
             className="absolute top-2 right-2 bg-white rounded-full p-2 shadow-md hover:bg-gray-100"
           >
             Change Image
