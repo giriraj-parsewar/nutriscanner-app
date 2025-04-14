@@ -16,64 +16,7 @@ export function Analysis() {
   ]);
 
   // Sample data - in a real app, this would come from your OCR and analysis
-  const sampleData = {
-    productName: 'Whole Grain Bread',
-    servingSize: '1 slice (30g)',
-    servingsPerContainer: 20,
-    calories: 80,
-    ingredients: [
-      'Water',
-      'Wheat Flour',
-      'Sugar',
-      'Vegetable Oil (Palm, Canola)',
-      'Salt',
-      'Yeast',
-      'Emulsifiers (E471, E472e)',
-      'Preservative (Calcium Propionate)',
-      'Soy Flour',
-      'Antioxidant (E300)',
-      'Vitamins (Thiamine, Folate)'
-    ],
-    macronutrients: [
-      { name: 'Total Fat', amount: '1g', dailyValue: 2 },
-      { name: 'Saturated Fat', amount: '0.2g', dailyValue: 1 },
-      { name: 'Trans Fat', amount: '0g', dailyValue: 0 },
-      { name: 'Cholesterol', amount: '0mg', dailyValue: 0 },
-      { name: 'Sodium', amount: '150mg', dailyValue: 7 },
-      { name: 'Total Carbohydrate', amount: '15g', dailyValue: 5 },
-      { name: 'Dietary Fiber', amount: '2g', dailyValue: 7 },
-      { name: 'Total Sugars', amount: '2g', dailyValue: 4 },
-      { name: 'Protein', amount: '3g', dailyValue: 6 }
-    ],
-    micronutrients: [
-      { name: 'Vitamin D', amount: '0mcg', dailyValue: 0 },
-      { name: 'Calcium', amount: '20mg', dailyValue: 2 },
-      { name: 'Iron', amount: '1mg', dailyValue: 6 },
-      { name: 'Potassium', amount: '60mg', dailyValue: 1 },
-      { name: 'Thiamine', amount: '0.1mg', dailyValue: 8 },
-      { name: 'Folate', amount: '20mcg', dailyValue: 5 }
-    ],
-    labels: [
-      'Whole Grain',
-      'Low Fat',
-      'No Artificial Colors',
-      'No High Fructose Corn Syrup'
-    ],
-    healthScore: 75,
-    carbonScore: 65,
-    pros: [
-      'Good source of whole grains',
-      'Low in saturated fat',
-      'Contains essential vitamins and minerals',
-      'No artificial preservatives'
-    ],
-    cons: [
-      'Contains palm oil',
-      'Moderate sodium content',
-      'Added sugar present',
-      'Contains emulsifiers'
-    ]
-  };
+  const sampleData ={"productName": "HERSHEY\'S ZERO SUGAR SYRUP", "servingSize": "1 tbsp (15g)", "servingsPerContainer": 32, "calories": 5, "ingredients": ["WATER", "COCOA PROCESSED WITH ALKALI*", "GLYCERIN", "ERYTHRITOL", "CONTAINS 2% OR LESS OF: SODIUM ACID SULFATE", "NATURAL & ARTIFICIAL FLAVOR", "XANTHAN GUM", "SALT", "POTASSIUM SORBATE (TO MAINTAIN FRESHNESS)", "SODIUM BENZOATE (TO MAINTAIN FRESHNESS)", "ACESULFAME POTASSIUM", "SUCRALOSE", "ZINC SULFATE", "VITAMIN E ACETATE", "NIACINAMIDE", "BIOTIN"], "macronutrients": [{"name": "Total Fat", "dailyValue": 0, "amount": "0g"}, {"name": "Saturated Fat", "dailyValue": 0, "amount": "0g"}, {"name": "Trans Fat", "dailyValue": 0, "amount": "0g"}, {"name": "Cholesterol", "dailyValue": 0, "amount": "0mg"}, {"name": "Sodium", "dailyValue": 1, "amount": "30mg"}, {"name": "Total Carbohydrate", "dailyValue": 1, "amount": "2g"}, {"name": "Dietary Fiber", "dailyValue": 0, "amount": "0g"}, {"name": "Total Sugars", "dailyValue": 0, "amount": "0g"}, {"name": "Incl. 0g Added Sugars", "dailyValue": 0, "amount": "0g"}, {"name": "Sugar Alcohols", "dailyValue": 0, "amount": "2g"}, {"name": "Protein", "dailyValue": 0, "amount": "0g"}], "micronutrients": [{"name": "Vitamin D", "dailyValue": 0, "amount": "0"}, {"name": "Calcium", "dailyValue": 0, "amount": "0"}, {"name": "Iron", "dailyValue": 2, "amount": "0"}, {"name": "Potassium", "dailyValue": 0, "amount": "0"}, {"name": "Vitamin E", "dailyValue": 25, "amount": "0"}, {"name": "Niacin", "dailyValue": 15, "amount": "0"}, {"name": "Biotin", "dailyValue": 140, "amount": "0"}, {"name": "Zinc", "dailyValue": 15, "amount": "0"}], "labels": ["Low Calorie", "Gluten Free"], "healthScore": 65, "carbonScore": 70, "gwpValue": 50, "pros": ["Zero Sugar", "Low Calorie"], "cons": ["Artificial Sweeteners"], "alternatives": ["Other Sugar-Free Syrups", "Fruits"]};
 
   const handleScanAnother = () => {
     navigate('/scan');
