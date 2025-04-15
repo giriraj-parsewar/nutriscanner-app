@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-    baseURL: 'http://172.25.216.130:8000/',
+    baseURL: 'https://aahar-api-ssij.onrender.com/',
     headers: {
         'Accept': 'application/json',
     },
